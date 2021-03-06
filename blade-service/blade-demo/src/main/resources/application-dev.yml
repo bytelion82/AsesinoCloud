@@ -1,0 +1,29 @@
+#服务器端口
+server:
+  port: 8200
+
+#数据源配置
+#spring:
+#  datasource:
+#    url: ${blade.datasource.dev.url}
+#    username: ${blade.datasource.dev.username}
+#    password: ${blade.datasource.dev.password}
+demo:
+  name: jj
+spring:
+  #排除DruidDataSourceAutoConfigure
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    dynamic:
+      #设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      datasource:
+        master:
+          url: jdbc:mysql://39.98.137.182:3306/blade?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+          username: root
+          password: Lazylion0802.
+#        slave:
+#          url: ${blade.datasource.demo.slave.url}
+#          username: ${blade.datasource.demo.slave.username}
+#          password: ${blade.datasource.demo.slave.password}
